@@ -1,15 +1,21 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import * as actions from '../redux/actions/actions';
+import { useDispatch } from 'react-redux';
+import { REMOVE_FEATURE } from '../redux/types';
 
 const AddedFeature = props => {
+  const dispatch = useDispatch();
+
+  const handleClick = () => {
+    dispatch({
+      type: REMOVE_FEATURE,
+      payload: {
+        id: props.feature.id
+      }
+    });
+  };
   return (
     <li>
-      {/* Add an onClick to run a function to remove a feature */}
-      <button
-        className="button"
-        onClick={() => props.removeFeature(props.feature.id)}
-      >
+      <button className="button" onClick={handleClick}>
         X
       </button>
       {props.feature.name}
@@ -17,7 +23,4 @@ const AddedFeature = props => {
   );
 };
 
-export default connect(
-  null,
-  actions
-)(AddedFeature);
+export default AddedFeature;
