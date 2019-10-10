@@ -1,4 +1,6 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import * as actions from '../redux/actions/actions';
 
 const Header = props => {
   return (
@@ -12,4 +14,7 @@ const Header = props => {
   );
 };
 
-export default Header;
+export default connect(
+  state => state.feature,
+  actions
+)(Header);
