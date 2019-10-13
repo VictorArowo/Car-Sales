@@ -1,7 +1,10 @@
 import React from 'react';
 import AdditionalFeature from './AdditionalFeature';
+import { useSelector } from 'react-redux';
 
-const AdditionalFeatures = props => {
+const AdditionalFeatures = () => {
+  const props = useSelector(state => state.feature);
+
   return (
     <div className="content">
       <h4>Additional Features</h4>

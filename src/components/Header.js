@@ -1,6 +1,9 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 
-const Header = props => {
+const Header = () => {
+  const props = useSelector(state => state.feature);
+
   return (
     <>
       <figure className="image is-128x128">
